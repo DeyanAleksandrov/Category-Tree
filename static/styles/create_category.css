@@ -1,0 +1,21 @@
+.body {
+    background-color: lightblue;
+}
+
+.h1 {
+    text-align: center;
+    color: darkblue;
+}
+
+.main {
+    text-align: center;
+}
+
+.button {
+    margin-bottom: 40px;
+    color: darkblue;
+    background-color: lightskyblue;
+    border: 2px solid black;
+    font-size: 20px;
+
+}

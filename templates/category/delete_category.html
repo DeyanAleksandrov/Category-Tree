@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete category</title>
+    <link rel="stylesheet" href="{% static 'styles/delete_category.css' %}">
+</head>
+<body class="body">
+    <header>
+        <h2 class="h3">Click here to delete</h2>
+    </header>
+    <main class="main">
+    <form action="{% url 'delete_category' category_id=category.pk %}" method="POST">
+        {% csrf_token %}
+        <button class="button">Delete</button>
+    </form>
+        </main>
+
+</body>
+</html>

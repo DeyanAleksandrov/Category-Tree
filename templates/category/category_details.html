@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Details</title>
+    <link rel="stylesheet" href="{% static 'styles/category_details.css' %}">
+</head>
+<body class="body">
+    <header>
+        <h1 class="h1">Category Details</h1>
+    </header>
+
+    <main class="main">
+        <p><strong>Name:</strong> {{ category.name }}</p>
+        <p><strong>Description:</strong> {{ category.description }}</p>
+
+        {% if category.parent %}
+            <p><strong>Parent:</strong> {{ category.parent.name }}</p>
+
+        {% else %}
+            <p><strong>No parent</strong></p>
+        {% endif %}
+
+        {% if category.image %}
+            <p><strong>Image:</strong><br>
+                <img src="{{ category.image.url }}" width="300" alt="{{ category.name }}">
+            </p>
+
+        {% else %}
+            <p><strong>No image</strong><br>
+        {% endif %}<br><br>
+
+
+        <a href="{% url 'update_category' category_id=category.pk %}">
+            <button class="up_button">Update category</button>
+        </a><br><br>
+        <a href="{% url 'delete_category' category_id=category.pk %}">
+            <button class="del_button">Delete category</button>
+        </a>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create category</title>
+    <link rel="stylesheet" href="{% static 'styles/create_category.css' %}">
+</head>
+<body class="body">
+    <header>
+        <h1 class="h1">Create Category</h1>
+    </header>
+    <main class="main">
+        <form action="{% url 'create_category' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" rows="4" cols="20"></textarea><br><br>
+            <label for="image">Image:</label><br>
+            <input type="file" id="image" name="image"><br><br>
+            <label for="parent">Parent:</label><br>
+            <select id="parent" name="parent">
+                <option value="">None</option>
+                {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+            </select><br><br>
+{#            <input type="submit" value="Create">#}
+            <button class="button">Create</button>
+        </form>
+
+    </main>
+
+
+</body>
+</html>

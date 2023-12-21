@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category list</title>
+    <link rel="stylesheet" href="{% static 'styles/category_list.css' %}">
+</head>
+<body class="body">
+    <header>
+        <h1 class="h1">Category List</h1>
+    </header>
+    <main class="main">
+        {% load mptt_tags %}
+        <ul class="ul">
+            {% recursetree categories %}
+                <li type="disc">
+                    <a href="{% url 'category_details' category_id=node.pk %}"><b>{{ node.name }}</b>
+                    </a>
+                    {% if not node.is_leaf_node %}
+                        <ul class="children">
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}
+        </ul>
+
+        <a href="{% url 'create_category' %}">
+            <button class="button">Create category</button>
+        </a>
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Tree</title>
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+</head>
+<body class="body">
+    <header>
+        <h1 class="header">
+            My Category Tree
+        </h1>
+        <nav>
+            <a href="{% url 'category_list' %}">
+                <h2 style="text-align: center"><button class="button">Category list</button></h2>
+            </a>
+
+        </nav>
+    </header>
+
+    <main class="main">
+        <img src="{% static 'static_images/new_tree.png'%}">
+    </main>
+    
+
+</body>
+</html>
