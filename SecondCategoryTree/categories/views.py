@@ -74,7 +74,8 @@ def create_category(request):
     categories = Category.objects.all()
 
     context = {
-        'categories': categories
+        'categories': categories,
+        'file': 'file',
     }
 
     if request.method == 'GET':
