@@ -75,6 +75,7 @@ def create_category(request):
 
     context = {
         'categories': categories,
+        'some': 'some'
     }
 
     if request.method == 'GET':
