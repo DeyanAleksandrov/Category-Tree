@@ -75,7 +75,8 @@ def create_category(request):
 
     context = {
         'categories': categories,
-        'some': 'some'
+        'title': 'title',
+        'new': 'new'
     }
 
     if request.method == 'GET':
@@ -96,4 +97,7 @@ def create_category(request):
         )
 
         return redirect('category_list')
+
+
+
 
